@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username
       t.text :positions, null: false, default: ""
       t.text :members, null: false, default: ""
+      t.string :authentication_token
+
+      t.string :redmine_token, null: false, default: ""
 
       t.timestamps null: false
     end

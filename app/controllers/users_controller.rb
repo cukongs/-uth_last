@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     user = User.find(doorkeeper_token.resource_owner_id)
     username = user.username.gsub(/[.]/, "_")
 
+    if !user.authentication_token.present?
+      user.authentication_token = SecureRandom.hex
+    end
+
     response = rest_client(CONFIG["virtualhr_api"])["/employees/#{username}/employee_positions.json?auth_token=" + CONFIG["virtualhr_auth_token"]].get
     positions = JSON.parse(response.to_s)
     user.positions = positions.to_s
