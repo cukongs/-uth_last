@@ -1,16 +1,12 @@
 class User < ActiveRecord::Base
+  include ApplicationHelper
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # devise :ldap_authenticatable, :registerable,
   #        :recoverable, :rememberable, :trackable, :validatable
   devise :ldap_authenticatable, :trackable, :validatable, :timeoutable
 
-  def rest_client(address)
-    RestClient::Resource.new(
-      address,
-      :verify_ssl =>  false
-    )
-  end
 
   def ldap_before_save
     user = self.username.gsub(/[.]/, "_")

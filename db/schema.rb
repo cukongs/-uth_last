@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20151027073643) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
+    t.text     "positions",              default: "", null: false
+    t.text     "members",                default: "", null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
