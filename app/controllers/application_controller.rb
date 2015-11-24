@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     render :text => exception, :status => 500
   end
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
