@@ -28,7 +28,7 @@ test:
 
 production:
   <<: *default
-  host: windranger.dwp.io
-  database: downlogdnet
-  username: downlogdnet
-  password: dunl0g!dn3t
+  host: postgres.dwp.io
+  database: authdwpio
+  username: authdwpio
+  password: dn3t4UTH4

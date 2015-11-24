@@ -50,3 +50,9 @@ gem 'devise_ldap_authenticatable', '0.8.4'
 gem 'doorkeeper'
 gem 'pg'
 gem 'rest-client'
+
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails-console'
+end
