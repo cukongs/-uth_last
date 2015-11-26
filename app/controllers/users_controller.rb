@@ -19,12 +19,10 @@ class UsersController < ApplicationController
     user.full_name = details["employee"]["nama"]
 
     response = rest_client(CONFIG["virtualhr_api"])["/employees/#{username}/employee_positions.json?auth_token=" + CONFIG["virtualhr_auth_token"]].get
-    positions = JSON.parse(response.to_s)
-    user.positions = positions.to_s
+    user.positions = response.to_s
 
     response = rest_client(CONFIG["virtualhr_api"])["/employees/#{username}/members.json?auth_token=" + CONFIG["virtualhr_auth_token"]].get
-    members = JSON.parse(response.to_s)
-    user.members = members.to_s
+    user.members = response.to_s
 
     user.save
 
