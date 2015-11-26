@@ -14,6 +14,10 @@ class UsersController < ApplicationController
       user.authentication_token = SecureRandom.hex
     end
 
+    response = rest_client(CONFIG["virtualhr_api"])["/employees/#{username}.json?auth_token=" + CONFIG["virtualhr_auth_token"]].get
+    details = JSON.parse(response.to_s)
+    user.full_name = details["employee"]["nama"]
+
     response = rest_client(CONFIG["virtualhr_api"])["/employees/#{username}/employee_positions.json?auth_token=" + CONFIG["virtualhr_auth_token"]].get
     positions = JSON.parse(response.to_s)
     user.positions = positions.to_s
