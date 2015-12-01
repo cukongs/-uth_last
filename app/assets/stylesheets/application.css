@@ -10,6 +10,28 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require Materialize/dist/css/materialize
  *= require_tree .
  *= require_self
  */
+
+.login {
+  width: 400px;
+  margin: 70px auto;
+  .title {
+    margin: -20px;
+    margin-bottom: 30px;
+
+    .text {
+      padding-top: 85px;
+      margin-left: 20px;
+      padding-bottom: 9px;
+      font-size: 20px;
+      color: white;
+    }
+  }
+  .right {
+    margin-bottom: -18px;
+    margin-top: 19px;
+  }
+}

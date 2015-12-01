@@ -1,0 +1,23 @@
+{
+  "name": "oauth2_provider",
+  "authors": [
+    "Bengsiswanto Hendrawan <bengsis@dwp.co.id>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.3",
+    "bootstrap": "~3.3.6"
+  }
+}

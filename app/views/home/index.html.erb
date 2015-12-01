@@ -1,4 +1,9 @@
-Welcome to oauth2_provider (doorkeeper)
+<h1 class="header center orange-text">Welcome to oauth2_provider (doorkeeper)</h1>
 
-<br>
-<%= link_to 'apps', oauth_applications_path %>
+<br/>
+<% if !user_signed_in? %>
+  <div class="center">
+    <%= link_to "Login", new_user_session_path, class: "btn waves-effect waves-light btn-large" %>
+  </div>
+<% end %>
+
