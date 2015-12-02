@@ -4,7 +4,9 @@
       <a href="#" class="brand-logo">Auth</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <% if is_in_division(current_user, ["M-01"]) %>
         <li><%= link_to 'Apps', oauth_applications_path %></li>
+        <% end %>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="side-nav">

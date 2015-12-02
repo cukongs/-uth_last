@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_action :doorkeeper_authorize!
+  protect_from_forgery except: [:sign_out]
+  before_action :doorkeeper_authorize!, except: [:sign_out]
 
   def index
   end
@@ -27,5 +28,10 @@ class UsersController < ApplicationController
     user.save
 
     render json: user.as_json
+  end
+
+  def sign_out
+    @user = User.find(11)
+    sign_out_and_redirect @user
   end
 end

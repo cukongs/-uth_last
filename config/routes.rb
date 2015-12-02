@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   use_doorkeeper
 
   get '/me' => 'users#me'
+  delete 'sign_out' => 'users#sign_out'
 
   root 'home#index'
 
