@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    get "/logout" => "devise/sessions#destroy"
+  end
+
   use_doorkeeper
 
   get '/me' => 'users#me'
-  delete 'sign_out' => 'users#sign_out'
 
   root 'home#index'
 

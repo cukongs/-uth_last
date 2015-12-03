@@ -29,9 +29,4 @@ class UsersController < ApplicationController
 
     render json: user.as_json
   end
-
-  def sign_out
-    @user = User.find(11)
-    sign_out_and_redirect @user
-  end
 end
