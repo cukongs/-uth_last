@@ -24,5 +24,16 @@ module Oauth2Provider
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.paths << Rails.root.join('bower_components')
+
+    config.to_prepare do
+      # Only Applications list
+      # Doorkeeper::ApplicationsController.layout "my_layout"
+
+      # Only Authorization endpoint
+      Doorkeeper::AuthorizationsController.layout "application"
+
+      # Only Authorized Applications
+      Doorkeeper::AuthorizedApplicationsController.layout "application"
+    end
   end
 end
