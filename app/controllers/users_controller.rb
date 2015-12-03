@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  protect_from_forgery except: [:sign_out]
-  before_action :doorkeeper_authorize!, except: [:sign_out]
+  before_action :doorkeeper_authorize!, only: [:me]
 
   def index
   end
