@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
   orm :active_record
@@ -20,7 +22,7 @@ Doorkeeper.configure do
   #   # Put your admin authentication logic here.
   #   # Example implementation:
   #   Admin.find_by_id(session[:admin_id]) || redirect_to(new_admin_session_url)
-    current_user || redirect_to(new_user_session_url)
+    is_in_division(current_user, ["M-01"]) || redirect_to(new_user_session_url)
   end
 
   # Authorization Code expiration time (default 10 minutes).

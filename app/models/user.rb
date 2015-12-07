@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   #        :recoverable, :rememberable, :trackable, :validatable
   devise :ldap_authenticatable, :trackable, :validatable, :timeoutable
 
-
   def ldap_before_save
     user = self.username.gsub(/[.]/, "_")
     response = rest_client(CONFIG["virtualhr_api"])["/employees/#{user}/employee_positions?auth_token=" + CONFIG["virtualhr_auth_token"]].get
